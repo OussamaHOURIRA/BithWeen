@@ -2,9 +2,12 @@ Groupe passé en revue : SNCF_viz ( https://github.com/OumaimaFassi/SNCF_viz )
 
   - Est-ce que le problème est clairement décrit ?
 
-Les étapes suivies pour aboutir au Layout final sont bien présentées
+Les étapes suivies pour aboutir au Layout final sont bien présentées.
+
 L'utilité d'accès à votre outil n'est pas pas pertinent pour les particuliers (mais d'une grande utilité pour le Top-Management travaillant à Sncf).
+
 Les critères de comparaisons entre les gares et les scénarios (opérations) sont bien décrits.
+
 Le projet paraît intéressant.
 
   - Est-ce que les choix de visualisation sont adaptés ?
