@@ -1,0 +1,51 @@
+{
+ "name": "cryptocurrency",
+ "children": [
+  {
+   "name": "subcurrency",
+   "children": 
+     [
+    {
+     "name": "Bitcoin",
+     "capitalisation": 146.22
+    },
+    {
+     "name": "Ethereum",
+     "capitalisation": 87.23
+    },
+    {
+     "name": "Ripple",
+     "capitalisation": 33.28
+    },
+    {
+     "name": "Bitfinex",
+     "capitalisation": 19.86
+    },
+    {
+     "name": "Cardano",
+     "capitalisation": 9.38
+    },
+    {
+     "name": "NEO",
+     "capitalisation": 7.55
+    },
+  {
+     "name": "Stellar",
+     "capitalisation": 7.2
+    },
+  {
+     "name": "NEM",
+     "capitalisation": 5.09
+    },
+  {
+     "name": "Litecoin",
+     "capitalisation": 6.96
+    },
+  {
+     "name": "EOS",
+     "capitalisation": 6.11
+    }
+    ]
+   }
+  ]
+}

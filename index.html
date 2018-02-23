@@ -1,12 +1,540 @@
-<html>
+<!DOCTYPE html>
 <head>
-<title>CryptoCurrencies</title>
-</head>
-<body>
-<p>hello world
-L'investissement dans la CAC40 ou la SP500 ne dépasse pas une rentabilité de 10% annuelle ! 
-Vous êtes impatients et Vous désirez invesstir ailleurs ? Bienvenue à notre plateforme de visualisation des crypto-monnaies.
+  <meta charset="utf-8">
+   <link rel="stylesheet" href="dist/css/bootstrap-slider.min.css">
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+   <script src="dist/jquery.min.js"></script>
+   <script src="dist/bootstrap-slider.min.js"></script>
 
-Vous trouverez dedans une visualisation détaillée et comparative des cryptomonnaies pour guider vos choix d'investissement</p>
+  <style>
+    
+    body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width:960px;
+}
+   
+    .node {
+  border: solid 1px white;
+  font: 13px sans-serif;
+  line-height: 20px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 20px;
+}
+    
+    
+  #tooltip {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+
+  #tooltip.hidden {
+    display: none;
+  }
+
+  #tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+  }
+    .line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+     
+    path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  
+}
+
+.legend {
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+   form {
+  position: BLOCK;
+    
+ 
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div id="gif">
+  <img src="https://cdn-images-1.medium.com/max/800/1*mp3zkhfmt0uhaER41h323g.gif" rel:animated_src="./example1.gif"
+    width="960" height="360" rel:auto_play="1" rel:rubbable="1" />
+  </div>
+  <!-- <form>
+    
+  <label><input type="radio" name="mode" value="OneWeek" checked> OneWeek</label>
+  <label><input type="radio" name="mode" value="TwoWeeks"> TwoWeeks</label>
+  <label><input type="radio" name="mode" value="OneMonth"> OneMonth</label>   
+  </form> -->
+
+  <!-- Months Slider -->
+      <input id="ex19" type="text" 
+              data-slider-ticks="[1,2,3]"
+              data-slider-ticks-labels='["1 week", "2 weeks","1 month"]'
+              data-slider-min="1"
+              data-slider-max="3"
+              data-slider-step="1"
+              data-slider-value="1"
+              data-slider-tooltip="hide"/>
+<script>
+   //    The choice variable indicates the period we are woking with to retrive coin's variation, 7 for the last week, 15 last fifteen days and 30 for the last month, this variable will be refreshed via a button events 
+
+var choice=7; 
+    
+// These two variables maintain the nodes-state     
+var choiceData= [];
+var Mycoins={};
+var MyLine=[];
+var hidecoin="";
+var hideProduct="";
+var svg2;
+var svg1;
+var svg3;
+ 
+  const margin = {top: 5, right: 0, bottom: 50, left: 0},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+  
+    var div = d3.select("body").append("div")
+    .style("position", "relative")
+    .style("width", (width + margin.left + margin.right) + "px")
+    .style("height", (height + margin.top + margin.bottom) + "px")
+    .style("left", margin.left + "px")
+    .style("top", margin.top + "px");
+
+
+ var mousemoveGif = function(d) {
+  var xPosition = d3.event.pageX + 5;
+  var yPosition = d3.event.pageY + 5;
+  d3.select("#tooltip")
+    .style("left", xPosition + "px")
+    .style("top", yPosition + "px");
+  d3.select("#tooltip #heading")
+    .text("Don’t worry, this’ll be only a ~5 minute adventure." );
+  d3.select("#tooltip").classed("hidden", false);
+      
+};
+    var mouseoutGif = function() {
+     
+  d3.select("#tooltip").classed("hidden", true);
+};
+    d3.select("div")
+    .on("mouseout", mouseoutGif)
+   .on("mousemove", mousemoveGif)
+    ;
+    
+
+    
+
+  var mousemove = function(d) {
+  var xPosition = d3.event.pageX + 5;
+  var yPosition = d3.event.pageY + 5;
+  d3.select("#tooltip")
+    .style("left", xPosition + "px")
+    .style("top", yPosition + "px");
+  d3.select("#tooltip #heading")
+    .text(d.data.name + " " + d.data.capitalisation+"$" );
+  d3.select("#tooltip").classed("hidden", false);
+      
+};
+    var mouseout = function() {
+     
+  d3.select("#tooltip").classed("hidden", true);
+};
+  var coinclick=  function(d) { 
+     
+  hidecoin=d.data.name;
+                              
+  svg1.selectAll("*").remove(); 
+  svg2.selectAll("*").remove();
+  svg3.selectAll("*").remove();                           
+  drawit();
+  
+  drawitCommedityNow();
+  Analyse()
+                               };
+    
+
+
+const treemap = d3.treemap().size([width, height]);
+    
+
+    
+//This is just a worthless function :)//
+    
+ function SignIt(val){
+      if(val<0){
+        return "";
+         }
+      else {return"+";}
+      }
+    
+ //  Refreshing the choice varibale value   
+ /* d3.selectAll("input").on("change", function change() {
+   var selectedRadio  = d3.select('input[name=mode]:checked').attr('value');
+   console.log(selectedRadio)
+    if (selectedRadio== "OneWeek") {choice=7;div.selectAll("*").remove(); ShowMap()}
+    if(selectedRadio== "TwoWeeks"){choice=15;div.selectAll("*").remove();ShowMap()}
+    if(selectedRadio== "OneMonth"){choice=30;div.selectAll("*").remove();ShowMap()}
+  });*/
+$("#ex19").slider().on("slide", function(slideEvt) {
+    var sliderValue = slideEvt.value;
+    console.log(sliderValue)
+    if (sliderValue== "1") {choice=7;}
+    if (sliderValue== "2") {choice=15;}
+    if (sliderValue== "3") {choice=30;}
+
+  });
+
+
+    
+function ShowMap(dt) {
+  
+ // The main code to generate the map  
+    
+d3.csv("datav.csv", function(dt) {
+  
+ // Calculating the variation ratio for each crypto-coin
+  
+  variationBitcoin=d3.format(".2f")(100*(dt[dt.length-1-choice].Bitcoin-dt[dt.length-1].Bitcoin)/dt[dt.length-1-choice].Bitcoin)
+  
+  variationEthereum=d3.format(".2f")(100*(dt[dt.length-1-choice].Ethereum-dt[dt.length-1].Ethereum)/dt[dt.length-1-choice].Ethereum)
+  
+  variationRipple=d3.format(".2f")(100*(dt[dt.length-1-choice].Ripple-dt[dt.length-1].Ripple)/dt[dt.length-1-choice].Ripple)
+  
+  variationBitfinex=d3.format(".2f")(100*(dt[dt.length-1-choice].Bitfinex-dt[dt.length-1].Bitfinex)/dt[dt.length-1-choice].Bitfinex)
+  
+  variationCardano=d3.format(".2f")(100*(dt[dt.length-1-choice].Cardano-dt[dt.length-1].Cardano)/dt[dt.length-1-choice].Cardano)
+  
+  variationNEO=d3.format(".2f")(100*(dt[dt.length-1-choice].NEO-dt[dt.length-1].NEO)/dt[dt.length-1-choice].NEO)
+  
+  variationStellar=d3.format(".2f")(100*(dt[dt.length-1-choice].Stellar-dt[dt.length-1].Stellar)/dt[dt.length-1-choice].Stellar)
+  
+  variationLitecoin=d3.format(".2f")(100*(dt[dt.length-1-choice].Litecoin-dt[dt.length-1].Litecoin)/dt[dt.length-1-choice].Litecoin)
+  
+  variationEOS=d3.format(".2f")(100*(dt[dt.length-1-choice].EOS-dt[dt.length-1].EOS)/dt[dt.length-1-choice].EOS)
+  
+  variationNEM=d3.format(".2f")(100*(dt[dt.length-1-choice].NEM-dt[dt.length-1].NEM)/dt[dt.length-1-choice].NEM)
+  
+// This list helps us to remedy the synchronisation dilemma 
+   Mycoins = {"variationBitcoin": variationBitcoin, "variationEthereum": variationEthereum, "variationRipple":variationRipple,"variationBitfinex":variationBitfinex,"variationCardano":variationCardano,"variationNEO":variationNEO,"variationStellar":variationStellar,"variationLitecoin":variationLitecoin,"variationEOS":variationEOS,"variationNEM":variationNEM}
+
+
+  
+
+d3.json("data.json", function(data) {
+  //if (error) throw error;
+
+  const root = d3.hierarchy(data, (d) => d.children).sum((d) => d.capitalisation);
+    
+  
+  const tree = treemap(root);
+
+  choiceData=data // Save the nodes state
+  const node = div.datum(root).selectAll(".node")
+      .data(tree.leaves())
+    .enter().append("div")
+      .attr("class", "node")
+      .style("left", (d) => d.x0 + "px")
+      .style("top", (d) => d.y0 + "px")
+      .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
+      .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
+      .style("background", function(d,i){ 
+         if(Mycoins["variation"+d.data.name]<0){
+         return "   #FF8A65";} // red color
+        else {
+          return "#1DE9B6"; // green color
+        }
+        
+      })
+      .text((d) => d.data.name+ "    " +SignIt(Mycoins["variation"+d.data.name])+Mycoins["variation"+d.data.name]+"%")
+  .on("mousemove",(d)=> mousemove(d))
+   .on("mouseout", mouseout)
+   .on("click",(d)=> coinclick(d))
+  ;
+ 
+}); // End Json
+    
+  
+  }); // End Csv
+      
+ const root = d3.hierarchy(choiceData, (d) => d.children)
+    .sum((d) => d.capitalisation);
+    
+  
+  const tree = treemap(root);
+
+  
+  const node = div.datum(root).selectAll(".node")
+      .data(tree.leaves())
+      .attr("class", "node")
+      .style("background", function(d,i){ 
+         if(Mycoins["variation"+d.data.name]<0){
+         return "   #FF8A65";} // red color
+        else {
+          return "#1DE9B6"; // green color
+        }
+        
+      })
+   .text((d) => d.data.name+ "    " +SignIt(Mycoins["variation"+d.data.name])+Mycoins["variation"+d.data.name]+"%");} 
+     
+        //----------------------------- Coin Lines ------------------
+    // Set the dimensions of the canvas / graph
+    
+// Parse the date / time
+var parseDate = d3.timeParse("%d-%m-%Y");
+
+// Set the ranges
+var x = d3.scaleTime().range([0, width]);  
+var y = d3.scaleLinear().range([height, 0]);
+      // Adds the svg canvas
+svg1 = d3.select("body")
+    .append("svg")
+     .style("position", "relative")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("left", margin.left+40 )
+        .attr("top", margin.top ) 
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left+40 + "," + margin.top + ")")
+;
+    
+
+function drawit(){
+
+// Get the data
+d3.csv("datav.csv", function(error, data) {
+  if (error) throw error;
+ symbols=data.columns.splice(1,data.columns.length-6)
+ 
+  // format the data
+  data.forEach(function(d) {
+      d.Date = parseDate(d.Date);
+     
+  });
+
+  // Scale the range of the data
+  x.domain(d3.extent(data, function(d) { return d.Date; }));
+  y.domain([0, d3.max(data, function(d) {
+    var MaxSymbols=0
+     for(j=0;j<symbols.length;j++){
+        if(symbols[j]==hidecoin || hidecoin==""){
+    MaxSymbols=Math.max(+d[symbols[j]], MaxSymbols); 
+     }
+        }
+  return MaxSymbols;
+  
+  })]); //Add something
+  
+  // Add the valueline path.
+  for(j=0;j<symbols.length;j++){
+    
+    if(symbols[j]==hidecoin || hidecoin==""){
+  svg1.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", d3.line()
+    .x(function(d) { return x(d.Date); })
+    .y(function(d) {d[symbols[j]]=+d[symbols[j]]
+        return y(d[symbols[j]]); })
+           )
+    legendSpace = width/symbols.length;
+    var color = d3.scaleLinear().range([1,symbols.length])
+      .interpolate(d3.interpolateHcl)
+      .range([d3.rgb("#ff6a00"), d3.rgb('#a39d00')]);
+  
+   svg1.append("text")
+            .attr("x", (legendSpace/2)+j*legendSpace)  // space legend
+            .attr("y", height + (margin.bottom/2)+ 5)
+            .attr("class", "legend")    // style the legend
+            .style("fill", function(d,i) { 
+          
+          
+          
+        return color(j);
+        })
+            .text(symbols[j]);
+     
+  
+}}
+  // Add the X Axis
+  svg1.append("g")
+      .attr("transform", "translate(0," + height+ ")")
+      .call(d3.axisBottom(x));
+
+  // Add the Y Axis
+  svg1.append("g")
+      .call(d3.axisLeft(y));
+
+});
+  
+   
+}
+    
+    
+var x2 = d3.scaleTime().range([0, width]);  
+var y2 = d3.scaleLinear().range([height, 0]);
+    // Adds the svg canvas
+ svg2 = d3.select("body")
+    .append("svg")
+     .style("position", "relative")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("left", margin.left+40 )
+        .attr("top", margin.top ) 
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left+40 + "," + margin.top + ")")
+;
+    
+function drawitCommedityNow(){
+// Get the data
+d3.csv("datav.csv", function(error, data) {
+  if (error) throw error;
+ symbols2=data.columns.splice(1,data.columns.length)
+ 
+  // format the data
+  data.forEach(function(d) {
+      d.Date = parseDate(d.Date);
+     
+  });
+  
+  legendSpace = width/symbols2.length;
+
+  // Scale the range of the data
+  x2.domain(d3.extent(data, function(d) { return d.Date; }));
+  y2.domain([0, d3.max(data, function(d) {
+    var MaxSymbols=0
+     for(j=0;j<symbols2.length;j++){
+       var ItisIn=0;
+    for(t=0;t<symbols.length;t++){
+      if(symbols[t]!=hidecoin && symbols[t]==symbols2[j]) {ItisIn=1;}
+    }
+     if((ItisIn==0 &&(symbols2[j]==hidecoin || symbols2[j]==hideProduct || (hideProduct=="" )))|| hidecoin==""){
+    MaxSymbols=Math.max(+d[symbols2[j]], MaxSymbols); 
+     }
+        }
+  return MaxSymbols;
+  
+  })]); //Add something
+  
+  // Add the valueline path.
+  for(j=0;j<symbols2.length;j++){
+    var ItisIn=0;
+    for(t=0;t<symbols.length;t++){
+      if(symbols[t]!=hidecoin && symbols[t]==symbols2[j]) {ItisIn=1;}
+    }
+    if((ItisIn==0 &&(symbols2[j]==hidecoin || symbols2[j]==hideProduct || (hideProduct=="" )))|| hidecoin=="")
+    {
+  svg2.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", d3.line()
+          
+    .x(function(d) { return x2(d.Date); })
+    .y(function(d) {d[symbols2[j]]=+d[symbols2[j]]
+        return y2(d[symbols2[j]]); })
+      
+           
+            )
+  
+     // Add the Legend
+     
+  var color = d3.scaleLinear().range([1,symbols2.length])
+      .interpolate(d3.interpolateHcl)
+      .range([d3.rgb("#ff6a00"), d3.rgb('#a39d00')]);
+ 
+     svg2.select("path").selectAll("line")
+     .attr("stroke","#ff0037")
+   svg2.append("text")
+            .attr("x", (legendSpace/2)+j*legendSpace)  // space legend
+            .attr("y", height + (margin.bottom/2)+ 5)
+            .attr("class", "legend")    // style the legend
+            .style("fill", function(d,i) { 
+          
+          
+          
+        return color(j);
+        })
+            .text(symbols2[j]);
+}}
+  // Add the X Axis
+  svg2.append("g")
+      .attr("transform", "translate(0," + height+ ")")
+      .call(d3.axisBottom(x2));
+
+  // Add the Y Axis
+  svg2.append("g")
+      .call(d3.axisLeft(y2));
+
+});
+  
+   
+}
+    function Analyse(){
+    svg3 = d3.select("body")
+    .append("svg")
+     .style("position", "relative")
+        .attr("width", (width + margin.left + margin.right)/2)
+        .attr("height", (height + margin.top + margin.bottom)/2)
+        .attr("left", margin.left+40 )
+        .attr("top", margin.top ) 
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left+40 + "," + margin.top + ")")
+;
+     svg3.append("text")
+            .attr("x", 200)  // space legend
+            .attr("y", 50)
+            .style("fill", d3.rgb("#602800"))
+            .text("Volatilité : "+hidecoin+" A calculer");
+     svg3.append("text")
+            .attr("x", 200)  // space legend
+            .attr("y", 80)
+            .style("fill", d3.rgb("#602800"))
+            .text("Volatilité : "+hideProduct+" A calculer");
+  }  
+
+ ShowMap()
+ drawit()
+ drawitCommedityNow()
+ Analyse()
+  </script>
+
+  <div id="tooltip" class="hidden">
+  <p><strong id="heading"></strong></p>
+</div>
 </body>
-</html>
+
