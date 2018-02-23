@@ -19,7 +19,7 @@ En effet, il suffit de comprendre le principe global des échanges d'actifs fina
 
 - Donc, on comprend bien que l'investissement repose principalement sur deux aspects: l'un psychique lié à l'aversion au risque de l'investisseur lambda. L'autre repose sur la compréhension de quelques indicateurs classiques et simple: Rentabilité par unité de temps et la volatilité de l'actif financier (l'écart type de la distribution des cours de valeur dans le temps de la monnaie en question).
 
- # Identification du besoin
+ # Identification du besoin et du marché potentiel
 - On a remarqué à travers l'analyse faite précedemment que le marché inclut des investisseurs potentiels qui n'ont pas des connaissances poussées dans le domaine du Trading (ce qui rend par conséquent l'investissement très ambigue pour eux, et c'est cette ambiguité qui génère l'inquiètude, augmente leur stress et impacte par conséquent leur aversion au risque).
  
 - Il y a donc un marché niche qu'a besoin de comprendre intuitivement les bases de l'investissement en cryptomonnaies afin de ne pas laisser cette opportunité passer à côté.
@@ -30,8 +30,8 @@ En effet, il suffit de comprendre le principe global des échanges d'actifs fina
 
 . La rentabilité: celle-ci correspond à une comparaison historique des cours de valeur afin de dégager les tendances de la monnaie digitale en question. La rentabilité est d'une part relative par rapport aux anciennes valeurs mais aussi doit être comparable avec d'autres actifs financiers (Devises & Commodities) connus par leur faible volatilité. 
 
-. La volatilité: repose sur l'écart type de la distribution des cours de valeur, c'est à dire décrit comment les anciennes cours de valeur sont distribués dans le temps. Cette notion est liée donc au risque et au stress du marché boursier.
+. La volatilité: repose sur l'écart type de la distribution des cours de valeur, c'est à dire décrit comment les anciens cours de valeur sont distribués dans le temps. Cette notion est liée donc au risque et au stress du marché boursier.
 
 - Remarque: Nous avons veillé au cours de notre projet à ce que les différentes valeurs affichées soient normalisées afin d'être comparable (éliminer l'effet d'échelle dû à la différence entre les cours des actifs financiers).
 
- 
+# Développement de la visualisation
