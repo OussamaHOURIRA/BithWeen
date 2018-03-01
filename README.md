@@ -1,5 +1,5 @@
 # BithWeen
-Visualisation des Crypto-monnaies 
+Visualization of Cryptocurrencies
 
 Investment in the CAC40 or the S & P500 does not exceed an annual profitability of 10% ! Are you impatient and want to go elsewhere?
 Welcome to our cryptocurrency visualization platform.
