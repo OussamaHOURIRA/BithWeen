@@ -1,37 +1,37 @@
 # BithWeen
 Visualisation des Crypto-monnaies 
 
-L'investissement dans la CAC40 ou la S&P500 ne dépasse pas une rentabilité de 10% annuelle ! Vous êtes impatients et Vous désirez invesstir ailleurs ? 
-Bienvenue à notre plateforme de visualisation des crypto-monnaies. 
+Investment in the CAC40 or the S & P500 does not exceed an annual profitability of 10% ! Are you impatient and want to go elsewhere?
+Welcome to our cryptocurrency visualization platform.
 
-Vous trouverez dedans une visualisation détaillée et comparative des cryptomonnaies pour guider vos choix d'investissement (Portfolio Management) :
+You'll find in a detailed and comparative cryptocurrency visualization to guide your investment choices (Portfolio Management) :
 
-- Treemap des crypto-monnaies en termes de capitalisation en mettant en évidence la variation par période de temps choisie
-- Affichage Multiple Line Chart de la valeur du Coin choisi (exprimée en dollars) avec possibilité de choisir le scale du temps qui nous convient (affichage mois-15 jours-semaine). La courbe s'affiche s'affiche d'une manière dynamique avec une synchronisation avec la Treemap d'avant.
-- Multiple Line Chart pour comparer le Coin choisi avec d'autres valeurs du marché (Commodities/Devises). On met en évidence la rentabilité et la volatilité (risque) des valeurs affichées afin d'aider l'investisseur dans ses choix.
+- Cryptocurrencies Treemap in terms of capitalization by highlighting the variation by chosen period of time
+- Multiple Line Chart display of the value of the chosen Coin (expressed in dollars) with possibility to choose the scale of the time that suits us (display month-15 days-week). The curve is displayed dynamically with synchronization with the previous Treemap.
+- Multiple Line Chart to compare the chosen Coin with other market values (Commodities / Currencies). We highlight the profitability and the volatility (risk) of the values displayed to help the investor in his choices.
 
-# Contexte
-- Nous avons choisi de présenter les différentes cryptomonnaies car elles sont bien différentes les unes des autres malgré qu'elles n'ont pas toutes une base physique. En effet, le Bitcoin est connu par sa spécularité due à la confrontation brutale entre l'offre et la demande. Les applications du Bitcoin sont faibles par rapport à l'Etherium qui reste la meilleure monnaie digitale en terme d'attractivité pour les développeurs puisqu'elle a de nombreuses applications dans les différentes industries.
-Dernièrement, de nombreuses banques privées ou étatiques ont décidé d'investir dans les cryptomonnaies à cause du flux monnétaire énorme (des transactions) qui se font chaque jour voire chaque minute. Le retour sur investissement dans les cryptomonnaies était juste extraordinaire. De nombreuses personnes ont gagné de l'argent, d'autres ont perdu leur capital, c'est bien cela la loi du marché. 
-- L'investissement dans les cryptomonnaies s'avère très compliquée même pour les grands Traders mondiaux car celui-ci repose sur la technologie BlockChain qu'est en cours du développement. Y'en a même qui disent que l'émergence du Bitcoin était "Prémature".
-Qui dit manque de maîtrise, dit possibilité d'exploiter le champs d'investissement par de nombreux acteurs notamment ceux qu'ont aucunes connaissances en Trading (Indicateurs Bollingers, MACD, Charitisme...). 
-En effet, il suffit de comprendre le principe global des échanges d'actifs financiers notamment le stress du marché (équilibre offre et demande) afin de prendre la bonne décision. Le risque est très présent dans ce type d'investissement, ce qui justifie bien la prime de risque élevée ou bien le retour sur investissement dans le marché des monnaies digitales.
+# Context
+- We have chosen to present the different cryptocurrencies because they are very different from each other, although they do not all have a physical basis. Indeed, Bitcoin is known for its specularity due to the brutal confrontation between supply and demand. The applications of Bitcoin are weak compared to Etherium which remains the best digital currency in terms of attractiveness for developers since it has many applications in different industries.
+Lately, many private or state banks have decided to invest in cryptocurrencies because of the huge cash flow (transactions) that occur every day or even every minute. The return on investment in cryptocurrency was just amazing. Many people have made money, others have lost their capital, that is the law of the market.
+- The investment in cryptocurrency is very complicated even for the big traders worldwide because it is based on BlockChain technology that is under development. There are even those who say that the emergence of Bitcoin was "premature".
+Which says lack of control, says possibility of exploiting the field of investment by many actors in particular those which have no knowledge in Trading (Indicators Bollingers, MACD, Charitism ...).
+Indeed, it is enough to understand the global principle of the exchanges of financial assets in particular the stress of the market (balance supply and demand) in order to take the right decision. Risk is very present in this type of investment, which justifies the high risk premium or the return on investment in the digital currency market.
 
-- Donc, on comprend bien que l'investissement repose principalement sur deux aspects: l'un psychique lié à l'aversion au risque de l'investisseur lambda. L'autre repose sur la compréhension de quelques indicateurs classiques et simples: Rentabilité par unité de temps et la volatilité de l'actif financier (l'écart type de la distribution des cours de valeur dans le temps de la monnaie en question).
+- So, we understand that the investment is mainly based on two aspects: the psychic linked to the risk aversion of the investor lambda. The other is based on the understanding of some simple and simple indicators: Profitability per unit of time and the volatility of the financial asset (the standard deviation of the value distribution over time of the currency in question).
 
- # Identification du besoin et du marché potentiel
-- On a remarqué à travers l'analyse faite précedemment que le marché inclut des investisseurs potentiels qui n'ont pas des connaissances poussées dans le domaine du Trading (ce qui rend par conséquent l'investissement très ambigue pour eux, et c'est cette ambiguité qui génère l'inquiètude, augmente leur stress et impacte par conséquent leur aversion au risque).
- 
-- Il y a donc un marché niche qu'a besoin de comprendre intuitivement les bases de l'investissement en cryptomonnaies afin de ne pas laisser cette opportunité passer à côté.
+ # Identification of the need and the potential market
+- We  have noticed through the analysis made previously that the market includes potential investors who do not have advanced knowledge in the field of Trading (which therefore makes investment very ambiguous for them, and it is this ambiguity that generates worry, increases their stress and therefore affects their risk aversion).
+ 
+- There is therefore a niche market that needs to intuitively understand the fundamentals of investment in cryptocurrency so as not to let this opportunity miss.
 
-- Nous avons donc décider de mettre en place un tableau de bord intuitif résumant quelques aspects essentiels à connaître avant de se lancer dans cette aventure: 
+- So we decided to set up an intuitive dashboard summarizing some essential aspects to know before embarking on this adventure:
 
-. La popularité: repose sur la capitalisation de chaque monnaie digitale, plus que la monnaie est populaire, plus que si l'on essaye de vendre, il y a de moins en moins le risque que l'on arrive pas à trouver une partie prenante (ou acheteur).
+. The popularity: based on the capitalization of each digital currency, more than the currency is popular, more than if one tries to sell, there is less and less the risk that one can not find a stakeholder ( or buyer).
 
-. La rentabilité: celle-ci correspond à une comparaison historique des cours de valeur afin de dégager les tendances de la monnaie digitale en question. La rentabilité est d'une part relative par rapport aux anciennes valeurs mais aussi doit être comparable avec d'autres actifs financiers (Devises & Commodities) connus par leur faible volatilité. 
+. Profitability: This corresponds to a historical comparison of value prices in order to identify trends in the digital currency in question. Profitability is relatively relative to the old values ​​but must also be comparable with other financial assets (Currencies & Commodities) known for their low volatility.
 
-. La volatilité: repose sur l'écart type de la distribution des cours de valeur, c'est à dire décrit comment les anciens cours de valeur sont distribués dans le temps. Cette notion est liée donc au risque et au stress du marché boursier.
+. Volatility: based on the standard deviation of the value share distribution, ie describes how old value quotes are distributed over time. This notion is therefore linked to the risk and stress of the stock market.
 
-- Remarque: Nous avons veillé au cours de notre projet à ce que les différentes valeurs affichées soient normalisées afin d'être comparable (éliminer l'effet d'échelle dû à la différence entre les cours des actifs financiers).
+- Note: During the course of our project, we have ensured that the different values ​​displayed are standardized in order to be comparable (eliminate the effect of scale due to the difference between the prices of financial assets).
 
-# Développement de la visualisation
+# Visualization development
