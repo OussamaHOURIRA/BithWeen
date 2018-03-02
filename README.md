@@ -35,7 +35,7 @@ Indeed, it is enough to understand the global principle of the exchanges of fina
 - Note: During the course of our project, we have ensured that the different values ​​displayed are standardized in order to be comparable (eliminate the effect of scale due to the difference between the prices of financial assets).
 
 # Visualization development
-figure 1 :
+![alt tag](http://url/figures/fig1.png)
  In this first section, we aim to expose the most attractive coins for investors. The information is based on the classification of their capitalizations in the market while this rank provides an idea about their popularity among investors worldwide.
 Therefore, the treemap visualization seemed to be the best form of representation of this data as it provides many applications of color palettes, coloring and sizing metrics. So for investors to have a bigger picture, the higher the capitalization's value is, the bigger area of the treemap's cryptocurrency has. As when it comes to colors, we have decided to use red color for negative variations (the cryptocurrency's value has decreased during a period of time) and green for the positive ones and the user can choose to visualize these variations during a specific period of time (a week, 2 weeks or a month). 
 
