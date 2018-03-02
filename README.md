@@ -39,11 +39,14 @@ figure 1 :
  In this first section, we aim to expose the most attractive coins for investors. The information is based on the classification of their capitalizations in the market while this rank provides an idea about their popularity among investors worldwide.
 Therefore, the treemap visualization seemed to be the best form of representation of this data as it provides many applications of color palettes, coloring and sizing metrics. So for investors to have a bigger picture, the higher the capitalization's value is, the bigger area of the treemap's cryptocurrency has. As when it comes to colors, we have decided to use red color for negative variations (the cryptocurrency's value has decreased during a period of time) and green for the positive ones and the user can choose to visualize these variations during a specific period of time (a week, 2 weeks or a month). 
 
-figure 2 :
- This line chart represents the profitability on each cryptocurrency, this way of representations highlights the variation of the profitability which gives an idea about the period when the coin had a certain behaviour (even positive or negative). As an example, if we take the Bitcoin cryptocurrency, we can notice that in the middle-january, we notice several continuous decreases of profitability.
-We used a grid in order to display the value of the profitability
- 
 figure 3 :
+ This line chart represents the profitability on each cryptocurrency, this way of representations highlights the variation of the profitability which gives an idea about the period when the coin had a certain behaviour (even positive or negative). As an example, if we take the Bitcoin cryptocurrency, we can notice that in the middle-january, we notice several continuous decreases of profitability. We used a grid in order to display the value of the profitability. Once you hover the mouse over certain line, there is a ToolTip that displays the name of cryptocurrency, we have also the legend at bottom of the chart which is interactive. You can click on the name of the cryptocurrency in order to hide/show the line of this crypto.
+ 
+figure 2 :
 This second line chart represents further information about commodities. Sometimes, investors are more interested in investing on commodities rather than cryptocurrencies, so that, they might lose a huge profitability that exceeds even the best shares in the classic market. There is a lot of features used in this chart like adding circles which have the same coordinate of the line chart, so that, you can just hover the mouse over it in order to display the data value (in US dollars). ToolTips that we used in the TreeMap to display the value of the capitalization of our cryptocurrencies which make it easy to understand the color of each currencies. 
  
-figure 2:
+figure 4:
+Horizontal BarChart which size and color change in function of the value of the profitability which itself depends on the period that we have chose from the timespan. 
+The function that computes the profitability is a ratio between (the current value minus the last value) and the last value.
+The function that computes the volatility is calculated based on the expectation and the standard deviation over the last period of the study.
+
