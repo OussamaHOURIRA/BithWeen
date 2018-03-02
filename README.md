@@ -49,6 +49,7 @@ Therefore, the treemap visualization seemed to be the best form of representatio
 This second line chart represents further information about commodities. Sometimes, investors are more interested in investing on commodities rather than cryptocurrencies, so that, they might lose a huge profitability that exceeds even the best shares in the classic market. There is a lot of features used in this chart like adding circles which have the same coordinate of the line chart, so that, you can just hover the mouse over it in order to display the data value (in US dollars). ToolTips that we used in the TreeMap to display the value of the capitalization of our cryptocurrencies which make it easy to understand the color of each currencies. 
  
 ![fig4](figures/fig4.png)
+
 Horizontal BarChart which size and color change in function of the value of the profitability which itself depends on the period that we have chose from the timespan. 
 The function that computes the profitability is a ratio between (the current value minus the last value) and the last value.
 The function that computes the volatility is calculated based on the expectation and the standard deviation over the last period of the study.
