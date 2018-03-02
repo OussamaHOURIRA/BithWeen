@@ -7,8 +7,8 @@ Welcome to our cryptocurrency visualization platform.
 You'll find in a detailed and comparative cryptocurrencies visualization to guide your investment choices (Portfolio Management) :
 
 - Cryptocurrencies Treemap in terms of capitalization by highlighting the variation by chosen period of time
-- Multiple Line Chart display of the value of the chosen Coin (expressed in dollars) with the possibility to choose the scale of the time that suits us (display month-15 days-week). The curve is displayed dynamically with synchronization with the previous Treemap.
 - Multiple Line Chart to compare the chosen Coin with other market values (Commodities / Currencies). We highlight the profitability and the volatility (risk) of the values displayed to help the investor in his choices.
+- Multiple Line Chart display of the profitability of the chosen Coin (expressed in dollars) during a certain period, we have also the possibility to choose the scale of the time that suits us (display month-15 days-1 week). The curve is displayed dynamically with synchronization with the previous Treemap.
 
 # Context
 - We have chosen to present the different cryptocurrencies because they are very different from each other, although they do not all have a physical basis. Indeed, Bitcoin is known for its specularity due to the brutal confrontation between supply and demand. The applications of Bitcoin are weak compared to Etherium which remains the best digital currency in terms of attractiveness for developers since it has many applications in different industries.
