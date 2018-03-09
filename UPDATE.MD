@@ -15,4 +15,4 @@ We can notice that all elements of the dashboard has become responsive, the majo
 
 - We still be opened for any suggestions or remarks that can help improve our project... 
 
-Thanks for your prompt feedback.
+Thanks for your prompt feedback. 
