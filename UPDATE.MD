@@ -9,6 +9,8 @@ It is done, the Y=0 axis is highlighted (because the profitability is always com
 
 The presentation is more refined, the information displayed is better presented and more comprehensible.
 
+- We have updated the logo of Centrale Lyon, We have added labels on axis for both line charts, We have added titles for every SVG,  we have corrected the grammatical mistake (Dashboard). 
+
 - Other changes (as discussed at the end of the presentation):
 
 We can notice that all elements of the dashboard has become responsive, the major updates were on the treemap which now has become an SVG (the old treemap version was based on DIV).
