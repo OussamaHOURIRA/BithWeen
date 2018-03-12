@@ -9,7 +9,7 @@ It is done, the Y=0 axis is highlighted (because the profitability is always com
 
 The presentation is more refined, the information displayed is better presented and more comprehensible.
 
-- We have updated the logo of Centrale Lyon, We have added labels on axis for both line charts, We have added titles for every SVG,  we have corrected the grammatical mistake (Dashboard). 
+- We have updated the logo of Centrale Lyon, We have added labels on axis for both line charts, We have added titles for every SVG,  We have corrected the grammatical mistake (Dashboard) and We have added the ZOOM (with double left-click) in every linechart (one right-click to reset the zooming). 
 
 - Other changes (as discussed at the end of the presentation):
 
